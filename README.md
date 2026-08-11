@@ -33,6 +33,12 @@ Pick the skills you want from the interactive prompt, or install everything.
 | ------------------------------------------------ | ------------------------------------------------------------------------ |
 | [optimize-audio](skills/media/optimize-audio)   | Shrink audio files by re-encoding with ffmpeg at lower bitrates/channels. |
 
+### Workflow
+
+| Skill                                                                | Description                                                                                     |
+| -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [implement-plan-phase](skills/workflow/implement-plan-phase)         | Implement a single phase of a plan file, verify it, update plan progress, and commit — then stop. |
+
 ### Writing
 
 | Skill                                                            | Description                                                                                  |
