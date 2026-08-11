@@ -17,7 +17,7 @@ Pick the skills you want from the interactive prompt, or install everything.
 | Skill                                                        | Description                                                                                    |
 | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
 | [bootstrap-claude-md](skills/claude-md/bootstrap-claude-md) | Author a new CLAUDE.md scoped to the current app, package, or directory from scratch.          |
-| [update-claude-md](skills/claude-md/update-claude-md)       | Audit and refresh the nearest CLAUDE.md against recent code changes so it stays accurate.      |
+| [update-claude-md](skills/claude-md/update-claude-md)       | Audit and refresh the nearest CLAUDE.md, prune task cruft, offload detail to context files.    |
 
 ### GitHub
 

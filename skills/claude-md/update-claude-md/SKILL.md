@@ -1,6 +1,6 @@
 ---
 name: update-claude-md
-description: Audit and refresh the nearest CLAUDE.md against recent code changes so its orientation stays accurate. Use when user says "update claude.md", "refresh claude.md", "sync claude.md", "audit claude.md", or asks to bring the CLAUDE.md in the current app/package (or monorepo root) up to date with recent commits.
+description: Audit and refresh the nearest CLAUDE.md against recent code changes so its orientation stays accurate, prune stale task cruft, and offload deep detail into context files to keep the index light. Use when user says "update claude.md", "refresh claude.md", "sync claude.md", "audit claude.md", "clean up claude.md", "slim down claude.md", or asks to bring the CLAUDE.md in the current app/package (or monorepo root) up to date with recent commits.
 disable-model-invocation: true
 ---
 
@@ -13,7 +13,7 @@ Refresh the CLAUDE.md that scopes the user's current working directory so its cl
 - **Target file**: the closest `CLAUDE.md` to `cwd` walking upward. Prefer the app/package-level file when `cwd` is inside one; only touch the monorepo root `CLAUDE.md` when `cwd` is at the root (or no package-level file exists).
 - **Never invent a CLAUDE.md**. If none exists in scope, stop and tell the user.
 - **Never touch** `~/.claude/CLAUDE.md` (global user instructions) or other packages' CLAUDE.md files — single-package scope only.
-- Preserve any `## Task-specific plan` / scratch section verbatim — those belong to the user.
+- `## Task-specific plan` / scratch sections: prune, don't preserve. Entries for work that already landed are cruft — remove them (see the task-cruft sweep in step 5). Keep only entries for tasks still in flight; when you can't tell, keep and flag in the summary.
 
 ## Detect progressive-disclosure structure
 
@@ -106,6 +106,14 @@ Produce an internal diff per file of:
 - **Missing** things that the diff introduced and that fit the doc's existing sections
 - **Still accurate** (leave untouched)
 
+**Task-cruft sweep.** Independently of the claim audit, scan the whole CLAUDE.md for task-scoped residue that outlived its task:
+
+- Completed entries in `## Task-specific plan` / scratch sections (verify against `git log` — if the described work landed, the entry is cruft).
+- "TODO for this PR" / "for this task" notes, step-by-step plans for shipped features, migration checklists for migrations that completed.
+- References to branches, PRs, or issues that are merged/closed (check with `gh` when cheap).
+
+Mark verified-done items for removal in step 6. Anything ambiguous (task may still be in flight) stays and gets flagged in the report instead.
+
 In progressive-disclosure mode, also decide for each diff finding **which file owns it**:
 - Goes in an existing context file if its topic matches that file's "when to load" hint.
 - Goes in the index only if it's must-know orientation (tiny, applies always).
@@ -121,8 +129,16 @@ Use `Edit` (not `Write`) for existing files so untouched sections stay byte-iden
 - Do not reorganize, rewrite, or "improve" sections the user didn't ask about.
 - Do not add time-sensitive notes ("as of April 2026", "recently added"). Write it as current truth.
 - Do not add meta-commentary ("updated by script", "see commit X").
-- Leave the `## Task-specific plan` section untouched.
+- Delete the task cruft marked in step 5. If a `## Task-specific plan` section empties out, leave the heading with its placeholder line (or whatever empty form the file used originally) so future tasks have somewhere to write.
 - If you are unsure whether a change is a real shift or incidental, leave the doc as-is and flag it in the summary instead.
+
+**Lighten the CLAUDE.md itself.** After content edits, judge the file's weight. CLAUDE.md is loaded into every session — it should carry orientation only. If any single topic occupies more than a few lines of deep detail (long command walkthroughs, schema dumps, exhaustive convention lists), move that detail out:
+
+- Into the **existing** context file whose "when to load" hint covers the topic.
+- Into a **new** context file when no existing one fits (create it, add its index row, per the progressive-disclosure rules above).
+- **Flat single-file mode**: if the CLAUDE.md has grown well past orientation size, restructure it into the progressive-disclosure shape — create a `context/` directory, move deep sections into topic files, and rewrite the CLAUDE.md as a thin index with a must-know section and a load-on-demand table. Keep every fact; only relocate it.
+
+Leave behind a one-line pointer in the index for anything moved. Never lighten by deleting accurate content — cruft gets deleted, detail gets relocated.
 
 **Progressive-disclosure extras** — in addition to the rules above:
 
@@ -139,7 +155,8 @@ End with a short bullet list:
 
 - **Updated**: stale claims you fixed (file\:line → old → new), keyed by which file (index vs each context file).
 - **Added**: new entries you inserted and where. Call out any new context file you created and the table row that now indexes it.
-- **Removed**: any context file you deleted and the table row you dropped.
+- **Removed**: task cruft you deleted (with the evidence it was done), plus any context file you deleted and the table row you dropped.
+- **Moved**: detail relocated out of the CLAUDE.md into context files (topic → destination file).
 - **Flagged (not applied)**: ambiguous shifts the user should eyeball.
 - **Suggested next**: if the diff implies a subsystem with no coverage in any file, name it but don't add empty scaffolding.
 
