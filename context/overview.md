@@ -13,6 +13,7 @@ Personal collection of agent skills for Claude Code and other agents. Grown orga
 | `skills/<category>/<skill-name>/` | One skill per directory, grouped by category |
 | `skills/<category>/<skill-name>/SKILL.md` | The skill itself: YAML frontmatter + instructions |
 | `skills/github/gh-cli/references/` | Per-topic reference sheets the skill loads on demand (`pr.md`, `issues.md`, `actions.md`, `repo-release.md`, `core.md`) |
+| `skills/game/three-game-starter/references/` | One reference sheet per game system, loaded per interview answer (`core-runtime.md`, `assets.md`, `rendering.md`, `audio.md`, `physics.md`, `performance.md`, `debug-tooling.md`) |
 | `README.md` | Install instructions + per-category tables listing every skill |
 | `LICENSE` | MIT |
 
@@ -21,8 +22,10 @@ Personal collection of agent skills for Claude Code and other agents. Grown orga
 | Category | Skills |
 | --- | --- |
 | `claude-md` | `bootstrap-claude-md`, `update-claude-md` |
+| `game` | `three-game-starter` |
 | `github` | `create-pr`, `update-pr`, `gh-cli` |
 | `media` | `optimize-audio` |
+| `workflow` | `implement-plan-phase` |
 | `writing` | `study-writing-style` |
 
 ## Gotchas

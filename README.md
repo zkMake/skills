@@ -19,6 +19,12 @@ Pick the skills you want from the interactive prompt, or install everything.
 | [bootstrap-claude-md](skills/claude-md/bootstrap-claude-md) | Author a new CLAUDE.md scoped to the current app, package, or directory from scratch.          |
 | [update-claude-md](skills/claude-md/update-claude-md)       | Audit and refresh the nearest CLAUDE.md, prune task cruft, offload detail to context files.    |
 
+### Game
+
+| Skill                                                          | Description                                                                                       |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [three-game-starter](skills/game/three-game-starter)           | Interview the user about their game's systems, then scaffold a pluggable three.js starter app.     |
+
 ### GitHub
 
 | Skill                                        | Description                                                                                             |
