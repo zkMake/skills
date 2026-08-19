@@ -8,7 +8,7 @@ How SKILL.md files in this repo are structured; load before creating or editing 
 | --- | --- |
 | `name` | Required. Must match the directory name exactly. |
 | `description` | Required. The trigger surface: what agents match against to decide when to invoke. Lead with what the skill does, then explicit trigger phrases ("Use when user says 'create a PR', 'open a pull request', …"). |
-| `disable-model-invocation` | Set `true` for skills meant only for explicit `/slash` invocation. Most skills here set it; `optimize-audio` and `gh-cli` are model-invocable and omit it. |
+| `disable-model-invocation` | Set `true` for skills meant only for explicit `/slash` invocation. Most skills here set it; `optimize-audio`, `gh-cli`, `tanstack-query`, and `tanstack-router` are model-invocable and omit it. |
 
 ## Body
 

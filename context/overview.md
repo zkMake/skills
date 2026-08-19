@@ -14,6 +14,7 @@ Personal collection of agent skills for Claude Code and other agents. Grown orga
 | `skills/<category>/<skill-name>/SKILL.md` | The skill itself: YAML frontmatter + instructions |
 | `skills/github/gh-cli/references/` | Per-topic reference sheets the skill loads on demand (`pr.md`, `issues.md`, `actions.md`, `repo-release.md`, `core.md`) |
 | `skills/game/three-game-starter/references/` | One reference sheet per game system, loaded per interview answer (`core-runtime.md`, `assets.md`, `rendering.md`, `audio.md`, `physics.md`, `performance.md`, `debug-tooling.md`) |
+| `skills/react/tanstack-*/references/` | One reference sheet per branch of the library's surface, loaded on demand |
 | `README.md` | Install instructions + per-category tables listing every skill |
 | `LICENSE` | MIT |
 
@@ -25,6 +26,7 @@ Personal collection of agent skills for Claude Code and other agents. Grown orga
 | `game` | `three-game-starter` |
 | `github` | `create-pr`, `update-pr`, `gh-cli` |
 | `media` | `optimize-audio` |
+| `react` | `tanstack-query`, `tanstack-router` |
 | `workflow` | `implement-plan-phase` |
 | `writing` | `study-writing-style` |
 

@@ -39,6 +39,13 @@ Pick the skills you want from the interactive prompt, or install everything.
 | ------------------------------------------------ | ------------------------------------------------------------------------ |
 | [optimize-audio](skills/media/optimize-audio)   | Shrink audio files by re-encoding with ffmpeg at lower bitrates/channels. |
 
+### React
+
+| Skill                                                    | Description                                                                                             |
+| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| [tanstack-query](skills/react/tanstack-query)           | TanStack Query best practices: keys, queryOptions, staleTime, mutations, invalidation, errors, SSR, tests. |
+| [tanstack-router](skills/react/tanstack-router)         | TanStack Router best practices: file conventions, typed navigation, search-param state, loaders, context.   |
+
 ### Workflow
 
 | Skill                                                                | Description                                                                                     |
