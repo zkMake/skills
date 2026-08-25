@@ -46,6 +46,12 @@ Pick the skills you want from the interactive prompt, or install everything.
 | [tanstack-query](skills/react/tanstack-query)           | TanStack Query best practices: keys, queryOptions, staleTime, mutations, invalidation, errors, SSR, tests. |
 | [tanstack-router](skills/react/tanstack-router)         | TanStack Router best practices: file conventions, typed navigation, search-param state, loaders, context.   |
 
+### Styling
+
+| Skill                                                            | Description                                                                                      |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| [tailwind-to-stylex](skills/styling/tailwind-to-stylex)         | Migrate a Tailwind CSS v4 codebase to StyleX via a phased, visually verified, pixel-identical workflow. |
+
 ### Workflow
 
 | Skill                                                                | Description                                                                                     |

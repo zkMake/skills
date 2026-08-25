@@ -20,3 +20,7 @@ Orientation index for coding tasks on this personal agent-skills collection (pub
 ## Task-specific plan
 
 (Extend below for the task at hand. Keep orientation section above unchanged.)
+
+### Add tailwind-to-stylex skill (2026-08-24)
+
+New `styling` category. `skills/styling/tailwind-to-stylex/`: SKILL.md drives a 7-phase migration (Baseline → Tooling → Tokens → Reset → Migrate → Lift → Teardown); `references/` holds one sheet per phase. Design decisions grilled + settled: ground-truth CSS from the project's own compiled Tailwind (never memorized tables), literal-then-lift, screenshot + computed-style diff gates, `light-dark()` tokens, sanctioned plain-CSS escape hatches, Astro hybrid (islands = StyleX, `.astro` = scoped styles on bridge vars, babel+postcss wiring primary). README + overview.md tables updated.
